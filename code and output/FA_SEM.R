@@ -8,12 +8,12 @@ library(dplyr)
 
 pj <- read.csv("D:\\data2.csv")
 pj <- pj[3:22]
-pj$ï»¿Q1 = NULL
+pj$åšœç†¹1 = NULL
 
-#¦]¯À¤ÀªR
+#å› ç´ åˆ†æž
 correlation0 <- cov(pj)
 # 
-fa.parallel(correlation0, n.obs = nrow(pj), fa = "fa", main = "¸H¥Û¹Ï", use = "pairwise.complete.obs")
+fa.parallel(correlation0, n.obs = nrow(pj), fa = "fa", main = "ç¢ŽçŸ³åœ–", use = "pairwise.complete.obs")
 # 
 fa <- fa(correlation0, nfactors = 5, rotate = "varimax", fm = "pa")
 fa
@@ -64,16 +64,16 @@ model2 <- '
 
 model3 <- '
         #measurement model
-        ¿Ë©M©Ê =~ Q5 + Q6 + Q7 + Q8
-        ¯«¸g½è =~ Q13 + Q14 + Q15 + Q16
-        ¥~¦V©Ê =~ Q1 + Q2 + Q3 + Q4
-        ¶}©ñ©Ê =~ Q17 + Q18 + Q19 + Q20
-        ÂÔ·V©Ê =~ Q9 + Q10 + Q11 + Q12
+        è¦ªå’Œæ€§ =~ Q5 + Q6 + Q7 + Q8
+        ç¥žç¶“è³ª =~ Q13 + Q14 + Q15 + Q16
+        å¤–å‘æ€§ =~ Q1 + Q2 + Q3 + Q4
+        é–‹æ”¾æ€§ =~ Q17 + Q18 + Q19 + Q20
+        è¬¹æ…Žæ€§ =~ Q9 + Q10 + Q11 + Q12
         #covariances
-        ¿Ë©M©Ê ~~ ¯«¸g½è + ¥~¦V©Ê + ¶}©ñ©Ê + ÂÔ·V©Ê
-        ¯«¸g½è ~~ ¥~¦V©Ê + ¶}©ñ©Ê + ÂÔ·V©Ê
-        ¥~¦V©Ê ~~ ¶}©ñ©Ê + ÂÔ·V©Ê
-        ¶}©ñ©Ê ~~ ÂÔ·V©Ê
+        è¦ªå’Œæ€§ ~~ ç¥žç¶“è³ª + å¤–å‘æ€§ + é–‹æ”¾æ€§ + è¬¹æ…Žæ€§
+        ç¥žç¶“è³ª ~~ å¤–å‘æ€§ + é–‹æ”¾æ€§ + è¬¹æ…Žæ€§
+        å¤–å‘æ€§ ~~ é–‹æ”¾æ€§ + è¬¹æ…Žæ€§
+        é–‹æ”¾æ€§ ~~ è¬¹æ…Žæ€§
         Q9 ~~ Q2 + Q3
         Q2 ~~ Q15 + Q16
         Q13 ~~ Q14
@@ -125,7 +125,7 @@ fitmeasures(fit2, c("cfi", "rmsea", "srmr"))
 fit3 <- lavaan(model, data = pj, auto.var = T)
 summary(fit3, fit.measure = T)
 
-semPaths(fit2,what = 'est', layout = 'spring') #®i¥Ü¦ô­p­È
+semPaths(fit2,what = 'est', layout = 'spring') #å±•ç¤ºä¼°è¨ˆå€¼
 
 fit4 <- sem(model2, data = pj)
 summary(fit4, standardized = T)
