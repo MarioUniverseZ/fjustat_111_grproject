@@ -8,19 +8,19 @@ library(dplyr)
 
 g1 <- read.csv("D:\\g1.csv")
 g2 <- read.csv("D:\\g2.csv")
-g3 <- read.csv("C:\\Users\\Administrator\\OneDrive\\¤å¥ó\\¤H®æ¯S½è¤À¸s3.csv")
+g3 <- read.csv("C:\\Users\\Administrator\\OneDrive\\æ–‡ä»¶\\äººæ ¼ç‰¹è³ªåˆ†ç¾¤3.csv")
 g1 <- g1[4:23]
 g2 <- g2[4:23]
 g3 <- g3[4:23]
 
-#¦]¯À¤ÀªR
+#å› ç´ åˆ†æž
 correlation1 <- cov(g1)
 correlation2 <- cov(g2)
 correlation3 <- cov(g3)
 # 
-fa.parallel(correlation1, n.obs = nrow(g1), fa = "fa", main = "¸H¥Û¹Ï", sim = TRUE)
-fa.parallel(correlation2, n.obs = nrow(g2), fa = "fa", main = "¸H¥Û¹Ï", sim = TRUE)
-fa.parallel(correlation3, fa = "fa", main = "¸H¥Û¹Ï")
+fa.parallel(correlation1, n.obs = nrow(g1), fa = "fa", main = "ç¢ŽçŸ³åœ–", sim = TRUE)
+fa.parallel(correlation2, n.obs = nrow(g2), fa = "fa", main = "ç¢ŽçŸ³åœ–", sim = TRUE)
+fa.parallel(correlation3, fa = "fa", main = "ç¢ŽçŸ³åœ–")
 # 
 fa1 <- fa(correlation1, nfactors = 5, n.obs = 326, rotate = "varimax", fm = "pa")
 fa2 <- fa(correlation2, nfactors = 5, n.obs = 36, rotate = "geominT", fm = "pa")
@@ -49,16 +49,16 @@ library(semPlot)
 
 model1 <- '
 #measurement model
-        ¿Ë©M©Ê =~ Q5 + Q6 + Q7 + Q8
-        ¯«¸g½è =~ Q13 + Q14 + Q15 + Q16
-        ¥~¦V©Ê =~ Q1 + Q2 + Q3 + Q4
-        ¶}©ñ©Ê =~ Q17 + Q18 + Q19 + Q20
-        ÂÔ·V©Ê =~ Q9 + Q10 + Q11 + Q12
+        è¦ªå’Œæ€§ =~ Q5 + Q6 + Q7 + Q8
+        ç¥žç¶“è³ª =~ Q13 + Q14 + Q15 + Q16
+        å¤–å‘æ€§ =~ Q1 + Q2 + Q3 + Q4
+        é–‹æ”¾æ€§ =~ Q17 + Q18 + Q19 + Q20
+        è¬¹æ…Žæ€§ =~ Q9 + Q10 + Q11 + Q12
         #covariances
-        ¿Ë©M©Ê ~~ ¯«¸g½è + ¥~¦V©Ê + ¶}©ñ©Ê + ÂÔ·V©Ê
-        ¯«¸g½è ~~ ¥~¦V©Ê + ¶}©ñ©Ê + ÂÔ·V©Ê
-        ¥~¦V©Ê ~~ ¶}©ñ©Ê + ÂÔ·V©Ê
-        ¶}©ñ©Ê ~~ ÂÔ·V©Ê
+        è¦ªå’Œæ€§ ~~ ç¥žç¶“è³ª + å¤–å‘æ€§ + é–‹æ”¾æ€§ + è¬¹æ…Žæ€§
+        ç¥žç¶“è³ª ~~ å¤–å‘æ€§ + é–‹æ”¾æ€§ + è¬¹æ…Žæ€§
+        å¤–å‘æ€§ ~~ é–‹æ”¾æ€§ + è¬¹æ…Žæ€§
+        é–‹æ”¾æ€§ ~~ è¬¹æ…Žæ€§
         Q5 ~~ Q6
         Q9 ~~ Q10
         Q12 ~~ Q20
@@ -68,16 +68,16 @@ model1 <- '
 
 model2 <- '
         #measurement model
-        ¶}©ñ©Ê =~ Q1 + Q3 + Q4 + Q17 + Q18 + Q19 + Q20
-        ÂÔ·V©Ê =~ Q9 + Q10 + Q11 + Q12
-        ¥~¦V©Ê =~ Q2 + Q6 + Q8
-        ¯«¸g½è =~ Q13 + Q14 + Q15 + Q16
-        ¿Ë©M©Ê =~ Q5 + Q7
+        é–‹æ”¾æ€§ =~ Q1 + Q3 + Q4 + Q17 + Q18 + Q19 + Q20
+        è¬¹æ…Žæ€§ =~ Q9 + Q10 + Q11 + Q12
+        å¤–å‘æ€§ =~ Q2 + Q6 + Q8
+        ç¥žç¶“è³ª =~ Q13 + Q14 + Q15 + Q16
+        è¦ªå’Œæ€§ =~ Q5 + Q7
         #covariances
-        ¿Ë©M©Ê ~~ ¯«¸g½è + ¥~¦V©Ê + ¶}©ñ©Ê + ÂÔ·V©Ê
-        ¯«¸g½è ~~ ¥~¦V©Ê + ¶}©ñ©Ê + ÂÔ·V©Ê
-        ¥~¦V©Ê ~~ ¶}©ñ©Ê + ÂÔ·V©Ê
-        ¶}©ñ©Ê ~~ ÂÔ·V©Ê
+        è¦ªå’Œæ€§ ~~ ç¥žç¶“è³ª + å¤–å‘æ€§ + é–‹æ”¾æ€§ + è¬¹æ…Žæ€§
+        ç¥žç¶“è³ª ~~ å¤–å‘æ€§ + é–‹æ”¾æ€§ + è¬¹æ…Žæ€§
+        å¤–å‘æ€§ ~~ é–‹æ”¾æ€§ + è¬¹æ…Žæ€§
+        é–‹æ”¾æ€§ ~~ è¬¹æ…Žæ€§
 
 
 '
